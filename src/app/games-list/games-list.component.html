@@ -1,0 +1,22 @@
+<h1>Lista de juegos ps5</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Juego</th>
+            <th>Categoria</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Imagen</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let game of games" [ngClass]="{'oferta': game.oferta}">
+            <td>{{game.nombre}}</td>
+            <td>{{game.categoria}}</td>
+            <td>{{game.precio | currency}}</td>
+            <td><span class="badge text-bg-danger" *ngIf="game.stock == 0">No disponible</span></td>
+            <td><img class="w-25" [src]=game.imagen></td>
+            <td><span class="badge text-bg-success" *ngIf="game.oferta == true">En oferta</span></td>
+        </tr>
+    </tbody>
+</table>
