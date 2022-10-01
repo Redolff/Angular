@@ -6,3 +6,11 @@ export interface Game {
     imagen: string;
     oferta: boolean;
 };
+
+export interface newGame{
+    imagen: string;
+    nombre: string;
+    descripcion: string;
+    fecha: string;
+    boton: string;
+}

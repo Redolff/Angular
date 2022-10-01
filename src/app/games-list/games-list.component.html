@@ -20,3 +20,15 @@
         </tr>
     </tbody>
 </table>
+<h1>Proximos lanzamientos de juegos</h1>
+<div class="card-group" *ngFor="let game of newGames">
+    <div class="card" style="width: 18rem;">
+        <img [src]="" class="card-img-top">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">{{game.descripcion}}</p>
+            <p class="card-text">{{game.fecha | uppercase}}</p>
+            <a href="#" class="btn btn-primary">{{game.boton}}</a>
+        </div>
+    </div>
+</div>
