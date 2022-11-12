@@ -5,6 +5,7 @@ import { HobbyStoreGamesComponent } from './hobby-store-games/hobby-store-games.
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
+  { path: ' ', redirectTo: 'home'},
   { path: 'home', component: HomeComponent},
   { path: 'games', component: HobbyStoreGamesComponent},
   { path: 'footer', component: FooterComponent}
