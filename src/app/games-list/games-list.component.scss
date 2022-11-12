@@ -5,7 +5,14 @@
 .oferta{
     background: lightgreen;
 }
+
+.cards{
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
 .card-img-top{
     height: 300px;
     width: max-content;
+    padding-left: 50px;
 }

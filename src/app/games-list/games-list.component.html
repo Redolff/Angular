@@ -7,6 +7,7 @@
             <th>Precio</th>
             <th>Stock</th>
             <th>Imagen</th>
+            <th>Cantidad</th>
         </tr>
     </thead>
     <tbody>
@@ -15,20 +16,27 @@
             <td>{{game.categoria}}</td>
             <td>{{game.precio | currency}}</td>
             <td><span class="badge text-bg-danger" *ngIf="game.stock == 0">No disponible</span></td>
-            <td><img class="w-25" [src]=game.imagen></td>
+            <td><img width=100 class="img-thumbnail" [src]=game.imagen></td>
+            <td>
+                <button type="button" class="btn btn-outline-dark btn-sm" (click)="restarCantidad(game)">-</button>
+                <input type="number" [(ngModel)]="game.cantidad" (keyup)="cantidadGames($event, game)">
+                <button type="button" class="btn btn-outline-dark btn-sm" (click)="sumarCantidad(game)">+</button>
+            </td>
             <td><span class="badge text-bg-success" *ngIf="game.oferta == true">En oferta</span></td>
         </tr>
     </tbody>
 </table>
 <h1>Proximos lanzamientos de juegos</h1>
-<div class="card-group" *ngFor="let game of newGames">
-    <div class="card" style="width: 18rem;">
-        <img [src]="" class="card-img-top">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">{{game.descripcion}}</p>
-            <p class="card-text">{{game.fecha | uppercase}}</p>
-            <a href="#" class="btn btn-primary">{{game.boton}}</a>
+<div class="cards">
+    <div class="card-group" *ngFor="let game of newGames">
+        <div class="card" style="width: 18rem;">
+            <img [src]=game.imagen class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title">{{game.nombre}}</h5>
+                <p class="card-text">{{game.descripcion}}</p>
+                <p class="card-text">{{game.fecha | uppercase}}</p>
+                <a href="#" class="btn btn-primary">{{game.boton}}</a>
+            </div>
         </div>
     </div>
 </div>

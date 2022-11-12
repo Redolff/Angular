@@ -16,6 +16,7 @@ export class GamesListComponent implements OnInit {
       stock: 0,
       imagen: "assets/img/fifa23.jpg",
       oferta: false,
+      cantidad: 0,
     },
     {
       nombre: "God of War: Ragnarok",
@@ -24,6 +25,7 @@ export class GamesListComponent implements OnInit {
       stock: 10,
       imagen: "assets/img/ragnarok.jpg",
       oferta: false,
+      cantidad: 0,
     },
     {
       nombre: "Call of Duty: Blackops",
@@ -32,6 +34,7 @@ export class GamesListComponent implements OnInit {
       stock: 3,
       imagen: "assets/img/blackops.jpg",
       oferta: false,
+      cantidad: 0,
     },
     {
       nombre: "Destiny 5",
@@ -40,6 +43,7 @@ export class GamesListComponent implements OnInit {
       stock: 7,
       imagen: "assets/img/destiny5.jpg",
       oferta: true,
+      cantidad: 0,
     }
   ];
 
@@ -91,6 +95,27 @@ export class GamesListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  restarCantidad(game: Game): void{
+    if(game.cantidad > 0){
+        game.cantidad--;
+    }
+  }
+
+  sumarCantidad(game: Game): void{
+    if(game.stock > 0 && game.cantidad < game.stock){
+      game.cantidad++;
+    }
+  }
+
+  cantidadGames(event:any, game: Game): void{
+      if(event.key > 0 && event.key <= game.stock){
+        game.cantidad = event.key;
+      }
+      else{
+        game.cantidad = game.stock;
+      }
   }
 
 }
