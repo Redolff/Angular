@@ -19,7 +19,7 @@
             <td><img width=100 class="img-thumbnail" [src]=game.imagen></td>
             <td>
                 <button type="button" class="btn btn-outline-dark btn-sm" (click)="restarCantidad(game)">-</button>
-                <input type="number" [(ngModel)]="game.cantidad" (keyup)="cantidadGames($event, game)">
+                {{game.cantidad}}
                 <button type="button" class="btn btn-outline-dark btn-sm" (click)="sumarCantidad(game)">+</button>
             </td>
             <td><span class="badge text-bg-success" *ngIf="game.oferta == true">En oferta</span></td>

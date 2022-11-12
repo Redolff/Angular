@@ -109,13 +109,4 @@ export class GamesListComponent implements OnInit {
     }
   }
 
-  cantidadGames(event:any, game: Game): void{
-      if(event.key > 0 && event.key <= game.stock){
-        game.cantidad = event.key;
-      }
-      else{
-        game.cantidad = game.stock;
-      }
-  }
-
 }
