@@ -7,5 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Hobby Store';
-  portada = 'assets/img/ps5.jpg';
 }
