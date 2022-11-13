@@ -1,41 +1,16 @@
-<h1>Lista de juegos</h1>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Juego</th>
-            <th>Categoria</th>
-            <th>Precio</th>
-            <th>Stock</th>
-            <th>Imagen</th>
-            <th>Cantidad</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let game of games" [ngClass]="{'oferta': game.oferta}">
-            <td>{{game.nombre}}</td>
-            <td>{{game.categoria}}</td>
-            <td>{{game.precio | currency}}</td>
-            <td><span class="badge text-bg-danger" *ngIf="game.stock == 0">No disponible</span></td>
-            <td><img width=100 class="img-thumbnail" [src]=game.imagen></td>
-            <td>
-                <button type="button" class="btn btn-outline-dark btn-sm" (click)="restarCantidad(game)">-</button>
-                {{game.cantidad}}
-                <button type="button" class="btn btn-outline-dark btn-sm" (click)="sumarCantidad(game)">+</button>
-            </td>
-            <td><span class="badge text-bg-success" *ngIf="game.oferta == true">En oferta</span></td>
-        </tr>
-    </tbody>
-</table>
-<h1>Proximos lanzamientos de juegos</h1>
+<h1>Todos los juegos</h1>
 <div class="cards">
     <div class="card-group" *ngFor="let game of newGames">
         <div class="card" style="width: 18rem;">
             <img [src]=game.imagen class="card-img-top">
             <div class="card-body">
                 <h5 class="card-title">{{game.nombre}}</h5>
-                <p class="card-text">{{game.descripcion}}</p>
-                <p class="card-text">{{game.fecha | uppercase}}</p>
-                <a href="#" class="btn btn-primary">{{game.boton}}</a>
+                <p class="card-text"><span class="badge text-bg-danger" *ngIf="game.stock == 0">No disponible</span></p>   
+                <p class="card-text">
+                    <app-input-integer [(cantidad)]="game.cantidad" [max]="game.stock"></app-input-integer>
+                </p>     
+                <p class="card-text">{{game.precio | currency}} </p>
+                <a href="" class="btn btn-primary" *ngIf="game.stock != 0">{{game.boton}}</a>
             </div>
         </div>
     </div>
