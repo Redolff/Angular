@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CarritoGamesService } from '../carrito-games.service';
 import { newGame } from './games';
 
 @Component({
@@ -8,7 +9,7 @@ import { newGame } from './games';
 })
 export class GamesListComponent implements OnInit {
 
-  newGames: newGame[] = [
+  games: newGame[] = [
     {
       imagen: "assets/img/Formula1-22.jpg",
       nombre: "Formula 1 - 2022",
@@ -59,9 +60,15 @@ export class GamesListComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor(private carrito: CarritoGamesService) {   }
 
   ngOnInit(): void {
+  }
+
+  addCarrito(game: newGame): void {
+    this.carrito.addCarrito(game);
+    game.stock -= game.cantidad;
+    game.cantidad = 0;
   }
 
 }

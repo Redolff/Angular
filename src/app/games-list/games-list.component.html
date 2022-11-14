@@ -1,6 +1,6 @@
 <h1>Todos los juegos</h1>
 <div class="cards">
-    <div class="card-group" *ngFor="let game of newGames">
+    <div class="card-group" *ngFor="let game of games">
         <div class="card" style="width: 18rem;">
             <img [src]=game.imagen class="card-img-top">
             <div class="card-body">
@@ -10,7 +10,7 @@
                     <app-input-integer [(cantidad)]="game.cantidad" [max]="game.stock"></app-input-integer>
                 </p>     
                 <p class="card-text">{{game.precio | currency}} </p>
-                <a href="" class="btn btn-primary" *ngIf="game.stock != 0">{{game.boton}}</a>
+                <a class="btn btn-primary" (click)="addCarrito(game)" *ngIf="game.stock != 0">{{game.boton}}</a>
             </div>
         </div>
     </div>

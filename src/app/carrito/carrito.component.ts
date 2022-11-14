@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CarritoGamesService } from '../carrito-games.service';
+import { newGame } from '../games-list/games';
 
 @Component({
   selector: 'app-carrito',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarritoComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  carritoList: newGame[] = [];
+  constructor(private carrito: CarritoGamesService) {  
   }
 
+  
+  ngOnInit(): void {
+    this.carrito.items.subscribe(data => {
+      this.carritoList = data;
+    });
+  }
+
+  
 }

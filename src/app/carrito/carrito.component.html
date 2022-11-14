@@ -1,1 +1,6 @@
-<p>Tu carrito</p>
+<h3>Carrito de Compras</h3>
+<table *ngFor="let cart of carritoList">
+    <th> <img [src]=cart.imagen> </th>
+    <th> {{cart.nombre}} </th>
+    <th> {{cart.precio | currency}} : {{cart.cantidad}} </th>
+</table>
