@@ -7,8 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HobbyStoreGamesComponent implements OnInit {
 
-  portada = "assets/img/ps5.jpg";
-
   constructor() { }
 
   ngOnInit(): void {

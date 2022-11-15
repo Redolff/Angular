@@ -7,7 +7,6 @@ import { GamesListComponent } from './games-list/games-list.component';
 import {FormsModule} from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { HobbyStoreGamesComponent } from './hobby-store-games/hobby-store-games.component';
-import { HomeComponent } from './home/home.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import { InputIntegerComponent } from './input-integer/input-integer.component';
 
@@ -18,7 +17,6 @@ import { InputIntegerComponent } from './input-integer/input-integer.component';
     GamesListComponent,
     FooterComponent,
     HobbyStoreGamesComponent,
-    HomeComponent,
     CarritoComponent,
     InputIntegerComponent,
   ],

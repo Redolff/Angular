@@ -1,6 +1,22 @@
-<h3>Carrito de Compras</h3>
-<table *ngFor="let cart of carritoList">
-    <th> <img [src]=cart.imagen> </th>
-    <th> {{cart.nombre}} </th>
-    <th> {{cart.precio | currency}} : {{cart.cantidad}} </th>
-</table>
+<div> 
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Juego</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Cantidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cart of carritoList">
+                <td scope="row"> <img [src]=cart.imagen class="w-75"> </td>
+                <td scope="row"> {{cart.nombre}} </td>
+                <td scope="row"> {{(cart.precio*cart.cantidad) | currency}}</td>
+                <td scope="row"> {{cart.cantidad}} </td>
+                <td scope="row"> <button class="btn-light" (click)="deleteGameCart(cart)">Eliminar</button> </td>
+            </tr>
+        </tbody>
+    </table>
+    <h5 class="text-end">Total: {{total() | currency}}</h5>
+</div>

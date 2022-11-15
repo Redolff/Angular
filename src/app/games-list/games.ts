@@ -1,4 +1,5 @@
 export interface newGame{
+    id: number;
     imagen: string;
     nombre: string;
     precio: number;

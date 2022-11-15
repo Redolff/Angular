@@ -7,25 +7,36 @@ import { newGame } from './games-list/games';
 })
 export class CarritoGamesService {
 
+  contadorCarrito = 0;
   private _carritoList: newGame[] = [];
-  private _itemSubjects: BehaviorSubject<newGame[]> = new BehaviorSubject(this._carritoList);
   
-  public items: Observable<newGame[]> = this._itemSubjects.asObservable();
+  _items: BehaviorSubject<newGame[]> = new BehaviorSubject(this._carritoList);
   
   constructor() { } 
-
+  
   addCarrito(game: newGame){
     let item = this._carritoList.find((v1) => v1.nombre == game.nombre);
-    if(!item && game.cantidad > 0){
-      this._carritoList.push( {...game} );
+    if(!item){
+      if(game.cantidad > 0){
+        this._carritoList.push( {...game} );
+      }
     }
     else{
-      
+      item.cantidad += game.cantidad;
     }
-    this._itemSubjects.next(this._carritoList);
+    this._items.next(this._carritoList);
   }
 
+  contarCarrito(){
+    this.contadorCarrito = this._carritoList.length;
+  }
 
-  /* Codigo del carrito, logica */
-
+  deleteGameCart(game: newGame){
+    let item = this._carritoList.find((v1)  => v1.nombre == game.nombre);
+    let indice = this._carritoList.findIndex((v1) => v1.id == game.id);
+    if(item){
+      this._carritoList.splice(indice, 1);
+    }
+  }
+  
 }
