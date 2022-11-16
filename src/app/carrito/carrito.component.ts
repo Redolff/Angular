@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CarritoGamesService } from '../carrito-games.service';
+import { GamesDatosService } from '../games-datos.service';
 import { newGame } from '../games-list/games';
 
 @Component({
@@ -10,7 +11,7 @@ import { newGame } from '../games-list/games';
 export class CarritoComponent implements OnInit {
 
   carritoList: newGame[] = [];
-  constructor(private carrito: CarritoGamesService) {  
+  constructor(private carrito: CarritoGamesService, private juegos: GamesDatosService) {  
   }
 
   ngOnInit(): void {
@@ -29,6 +30,10 @@ export class CarritoComponent implements OnInit {
   
   deleteGameCart(cart: newGame): void{
     this.carrito.deleteGameCart(cart);
+  }
+
+  vaciarCarrito(){
+    this.carrito.vaciarCarrito();
   }
 
   

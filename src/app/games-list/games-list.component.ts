@@ -15,19 +15,16 @@ export class GamesListComponent implements OnInit {
   constructor(private carrito: CarritoGamesService, private juegos: GamesDatosService) {   }
 
   ngOnInit(): void {
-    this.juegos.getAll().subscribe(games => {
+    /*this.juegos.getAll().subscribe(games => {
       this.games = games;
-    });
+    });*/
+    this.games = this.juegos.games;
   }
 
   addCarrito(game: newGame): void {
     this.carrito.addCarrito(game);
     game.stock -= game.cantidad;
     game.cantidad = 0;
-  }
-
-  deleteGameCart(game: newGame): void{
-    this.carrito.deleteGameCart(game);
   }
 
 }

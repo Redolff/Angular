@@ -11,7 +11,9 @@ import { newGame } from './games-list/games';
 export class AppComponent {
   title = 'Hobby Store';
   portada = "assets/img/ps5.jpg";
+  tituloCart = "Carrito de compras";
 }
+
 
 export default {
   components: {
