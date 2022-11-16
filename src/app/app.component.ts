@@ -9,12 +9,9 @@ import { newGame } from './games-list/games';
 })
 
 export class AppComponent {
-  imagen = 'assets/img/games-ps5.jpg';
   title = 'Hobby Store';
   portada = "assets/img/ps5.jpg";
-  tituloCart = "Carrito de compras";
 }
-
 
 export default {
   components: {

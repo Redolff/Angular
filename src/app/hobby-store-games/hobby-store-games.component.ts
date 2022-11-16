@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HobbyStoreGamesComponent implements OnInit {
 
+  imagen = 'assets/img/games-ps5.jpg';
+  portada = "assets/img/ps5.jpg";
+  tituloCart = "Carrito de compras";
+
   constructor() { }
 
   ngOnInit(): void {

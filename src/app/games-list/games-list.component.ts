@@ -11,11 +11,13 @@ import { newGame } from './games';
 export class GamesListComponent implements OnInit {
 
   games: newGame[] = [];
-
+  
   constructor(private carrito: CarritoGamesService, private juegos: GamesDatosService) {   }
 
   ngOnInit(): void {
-    this.juegos.getAll().subscribe(games => this.games = games);
+    this.juegos.getAll().subscribe(games => {
+      this.games = games;
+    });
   }
 
   addCarrito(game: newGame): void {
