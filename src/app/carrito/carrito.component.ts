@@ -9,9 +9,6 @@ import { newGame } from '../games-list/games';
 })
 export class CarritoComponent implements OnInit {
 
-
-  cart = document.querySelector("#container-carrito");
-  contadorCarrito = document.querySelector("#contador-carrito");
   carritoList: newGame[] = [];
   constructor(private carrito: CarritoGamesService) {  
   }

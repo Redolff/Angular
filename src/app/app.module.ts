@@ -4,6 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GamesListComponent } from './games-list/games-list.component';
+
+import {HttpClientModule} from '@angular/common/http';
+
 import {FormsModule} from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { HobbyStoreGamesComponent } from './hobby-store-games/hobby-store-games.component';
@@ -23,7 +26,8 @@ import { InputIntegerComponent } from './input-integer/input-integer.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -27,10 +27,6 @@ export class CarritoGamesService {
     this._items.next(this._carritoList);
   }
 
-  contarCarrito(){
-    this.contadorCarrito = this._carritoList.length;
-  }
-
   deleteGameCart(game: newGame){
     let item = this._carritoList.find((v1)  => v1.nombre == game.nombre);
     let indice = this._carritoList.findIndex((v1) => v1.id == game.id);
