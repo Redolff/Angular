@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { Icon } from '@iconify/vue';
-import { newGame } from './games-list/games';
 
 @Component({
   selector: 'app-root',
@@ -13,10 +11,3 @@ export class AppComponent {
   portada = "assets/img/ps5.jpg";
   tituloCart = "Carrito de compras";
 }
-
-
-export default {
-  components: {
-    Icon,
-  },
-};
